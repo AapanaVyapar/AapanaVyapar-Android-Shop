@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AapanaVyapar" parent="Theme.MaterialComponents.Light">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+
+        <item name="android:textColor" tools:targetApi="l">@color/heading</item>
+
+        <item name="android:textColorPrimary" tools:targetApi="l">@color/primaryTextColor</item>
+
+        <item name="android:colorPrimary" tools:targetApi="l">@color/primary</item>
+
+        <item name="android:colorPrimaryDark" tools:targetApi="l">@color/colorPrimaryDark</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/navigationBarColor</item>
+
+        <item name="android:windowBackground" tools:targetApi="l">@color/windowBackground</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AapanaVyapar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+    </style>
+
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/custom_star</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/black</item>
+    </style>
+
+</resources>

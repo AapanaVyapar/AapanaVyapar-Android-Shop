@@ -1,0 +1,113 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.protobuf'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.aapanavyapar.aapanavyapar"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'proguard-rules-new.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
+    ndkVersion '21.1.6352462'
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.12.0'
+    }
+    plugins {
+        grpc {
+                artifact = 'io.grpc:protoc-gen-grpc-java:1.35.0' // CURRENT_GRPC_VERSION
+        }
+
+        javalite {
+            // The codegen for lite comes as a separate artifact
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java { option 'lite' }
+            }
+            task.plugins {
+                grpc {
+                    // Options added to --grpc_out
+                    option 'lite'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'io.grpc:grpc-okhttp:1.36.0'
+    implementation 'io.grpc:protoc-gen-grpc-java:1.36.0'
+    //implementation 'io.grpc:grpc-protobuf-lite:1.36.0'
+    implementation 'io.grpc:grpc-stub:1.36.0'
+    implementation 'org.apache.tomcat:annotations-api:6.0.53'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'io.grpc:grpc-protobuf:1.36.0'
+    implementation 'com.google.android.material:material:1.4.0-alpha02'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+
+    def nav_version = "2.3.3"
+    //noinspection GradleDependency
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    //noinspection GradleDependency
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    // Feature module Support
+    //noinspection GradleDependency
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    // Testing Navigation
+    //noinspection GradleDependency
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    // Jetpack Compose Integration
+    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+
+
+
+    def lifecycle_version = "2.2.0"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
