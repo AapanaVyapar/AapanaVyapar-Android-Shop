@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+option java_multiple_files = true;
+option java_package = "com.aapanavyapar.aapanavyapar.services";
+
+message UpdateShopPrimaryImageRequest {
+
+}
+
+message UpdateShopPrimaryImageResponse {
+
+}
+
+message UpdateShopKeeperNameRequest {
+
+}
+
+message UpdateShopKeeperNameResponse {
+
+}
+
+message UpdateShopAddressAndLocationRequest {
+
+}
+
+message UpdateShopAddressAndLocationResponse {
+
+}
+
+message UpdateCategoryRequest {
+
+}
+
+message UpdateCategoryResponse {
+
+}
+
+message UpdateBusinessInfoRequest {
+
+}
+
+message UpdateBusinessInfoResponse {
+
+}
+
+message UpdateOperationalHoursRequest {
+
+}
+
+message UpdateOperationalHoursResponse {
+
+}
+

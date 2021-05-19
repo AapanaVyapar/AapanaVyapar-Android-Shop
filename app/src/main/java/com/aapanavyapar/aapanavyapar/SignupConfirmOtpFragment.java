@@ -202,11 +202,16 @@ public class SignupConfirmOtpFragment extends Fragment {
 
                     authdb.insertData(dataModel.getRefreshToken(),access);
 
-                    Intent intent  = new Intent(getContext(), ViewProvider.class);
-                    intent.putExtra("Token",dataModel.getRefreshToken());
-                    intent.putExtra("AuthToken",dataModel.getAuthToken());
-                    intent.putExtra("Access",access);
-                    startActivity(intent);
+
+                    NavDirections actionWithOtp = SignupConfirmOtpFragmentDirections.actionSignupConfirmOtpFragmentToCreateShopFragment();
+                    Navigation.findNavController(view).navigate(actionWithOtp);
+
+
+//                    Intent intent  = new Intent(getContext(), ViewProvider.class);
+//                    intent.putExtra("Token",dataModel.getRefreshToken());
+//                    intent.putExtra("AuthToken",dataModel.getAuthToken());
+//                    intent.putExtra("Access",access);
+//                    startActivity(intent);
 
                 }catch (StatusRuntimeException e){
                     if (e.getStatus().getCode().toString().equals("INVALID_ARGUMENT")) {
@@ -240,11 +245,14 @@ public class SignupConfirmOtpFragment extends Fragment {
 
                                 authdb.insertData(dataModel.getRefreshToken(),access);
 
-                                Intent intent  = new Intent(getContext(), ViewProvider.class);
-                                intent.putExtra("Token",dataModel.getRefreshToken());
-                                intent.putExtra("AuthToken",dataModel.getAuthToken());
-                                intent.putExtra("Access",access);
-                                startActivity(intent);
+                                NavDirections actionWithOtp = SignupConfirmOtpFragmentDirections.actionSignupConfirmOtpFragmentToCreateShopFragment();
+                                Navigation.findNavController(view).navigate(actionWithOtp);
+
+//                                Intent intent  = new Intent(getContext(), ViewProvider.class);
+//                                intent.putExtra("Token",dataModel.getRefreshToken());
+//                                intent.putExtra("AuthToken",dataModel.getAuthToken());
+//                                intent.putExtra("Access",access);
+//                                startActivity(intent);
 
                             }catch (StatusRuntimeException e1){
                                 Toast.makeText(view.getContext(), "Please Try Again .. !!", Toast.LENGTH_SHORT).show();

@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_SigninFragment_to_ForgotPasswordFragment"
             app:destination="@id/ForgotPasswordFragment" />
+        <action
+            android:id="@+id/action_SigninFragment_to_CreateShopFragment"
+            app:destination="@id/CreateShopFragment" />
     </fragment>
     <fragment
         android:id="@+id/SignupConfirmOtpFragment"
@@ -54,6 +57,15 @@
         <action
             android:id="@+id/action_SignupConfirmOtpFragment_to_SignupFragment"
             app:destination="@id/SignupFragment" />
+        <action
+            android:id="@+id/action_SignupConfirmOtpFragment_to_CreateShopFragment"
+            app:destination="@id/CreateShopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateShopFragment"
+        android:name="com.aapanavyapar.aapanavyapar.CreateShop"
+        android:label="Create Your Shop"
+        tools:layout="@layout/fragment_create_shop">
     </fragment>
     <fragment
         android:id="@+id/ForgotPasswordFragment"

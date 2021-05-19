@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+option java_multiple_files = true;
+option java_package = "com.aapanavyapar.aapanavyapar.services";
+
+import "get-message.proto";
+import "update-message.proto";
+import "create-delete-message.proto";
+
+service ViewProviderService {
+  rpc CreateShop (CreateShopRequest) returns (CreateShopResponse);
+  rpc DeleteShop (DeleteShopRequest) returns (DeleteShopResponse);
+
+  rpc AddProduct (AddProductRequest) returns (AddProductResponse);
+  rpc DelProduct (DelProductRequest) returns (DelProductResponse);
+
+  rpc GetShopDetails (GetShopDetailsRequest) returns (GetShopDetailsResponse);
+  rpc UpdateShopPrimaryImage (UpdateShopPrimaryImageRequest) returns (UpdateShopPrimaryImageResponse);
+
+  rpc UpdateShopKeeperName (UpdateShopKeeperNameRequest) returns (UpdateShopKeeperNameResponse);
+  rpc UpdateShopAddressAndLocation (UpdateShopAddressAndLocationRequest) returns (UpdateShopAddressAndLocationResponse);
+
+  rpc UpdateCategory (UpdateCategoryRequest) returns (UpdateCategoryResponse);
+  rpc UpdateBusinessInfo (UpdateBusinessInfoRequest) returns (UpdateBusinessInfoResponse);
+  rpc UpdateOperationalHours (UpdateOperationalHoursRequest) returns (UpdateOperationalHoursResponse);
+
+  rpc GetOrders (GetOrdersRequest) returns (stream GetOrdersResponse);
+
+}
