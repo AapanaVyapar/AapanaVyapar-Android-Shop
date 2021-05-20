@@ -1,41 +1,77 @@
 package com.aapanavyapar.viewData;
 
 public class ProductData {
-    Integer product_image;
-    String product_name;
-    String shop_name;
+    String productName;
+    String description;
+    String shippingInfo;
+    int stock;
+    double price;
+    String[] Images;
+    String category;
 
-
-    public ProductData(Integer product_image, String product_name, String shop_name) {
-        this.product_image = product_image;
-        this.product_name = product_name;
-        this.shop_name = shop_name;
-
+    public ProductData(String productName, String description, String shippingInfo, int stock, double price, String[] images, String category) {
+        this.productName = productName;
+        this.description = description;
+        this.shippingInfo = shippingInfo;
+        this.stock = stock;
+        this.price = price;
+        Images = images;
+        this.category = category;
     }
 
-    public Integer getProduct_image() {
-        return product_image;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_image(Integer product_image) {
-        this.product_image = product_image;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getShop_name() {
-        return shop_name;
+    public String getShippingInfo() {
+        return shippingInfo;
     }
 
-    public void setShop_name(String shop_name) {
-        this.shop_name = shop_name;
+    public void setShippingInfo(String shippingInfo) {
+        this.shippingInfo = shippingInfo;
     }
 
+    public int getStock() {
+        return stock;
+    }
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String[] getImages() {
+        return Images;
+    }
+
+    public void setImages(String[] images) {
+        Images = images;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

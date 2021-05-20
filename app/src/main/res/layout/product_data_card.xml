@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/product_image"
+            android:id="@+id/productImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop">
@@ -36,7 +36,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/asap"
@@ -55,26 +55,14 @@
                 android:layout_width="match_parent">
 
                 <TextView
+                    android:id="@+id/offer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/product_likes"
-                    android:text="1.2k"
-                    android:textColor="?android:textColor"
-                    android:textAlignment="viewEnd"
-                    android:textSize="20dp" />
-<!--                android:fontFamily="@font/inknut_antiqua_light"-->
-
-                <ImageView
-                    android:id="@+id/product_likes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:elevation="10dp"
-                    android:outlineSpotShadowColor="?android:textColorSecondary"
-                    android:scaleX=".5"
-                    android:scaleY=".5"
-                    android:src="@drawable/heart" />
+                    android:text="12%"
+                    android:textAlignment="viewEnd"
+                    android:textColor="?android:textColor"
+                    android:textSize="20dp" />
 
             </RelativeLayout>
 
@@ -88,12 +76,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/shop_name"
+                android:id="@+id/stock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="10dp"
-                android:text="Shop Name"
+                android:text="Stock : 20"
                 android:fontFamily="@font/asap"
                 android:textColor="?android:textColor"
                 android:textAlignment="viewStart">
@@ -104,25 +92,53 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
 
-
-                <RatingBar
-                    android:id="@+id/shop_rating_bar"
-                    style="@style/RatingBar"
+                <TextView
+                    android:id="@+id/price"
+                    android:text="1000 Paise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="21dp"
-                    android:isIndicator="false"
-                    android:numStars="5"
-                    android:rating="5">
+                    android:layout_marginEnd="21dp"/>
 
-
-                </RatingBar>
             </RelativeLayout>
 
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/category"
+            android:text="Sports, Education"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:text="Some Description Of Product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shipping Info"
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/shippingInfo"
+            android:text="Some Shipping Info Of Product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
 
     </LinearLayout>
 
@@ -152,7 +168,7 @@
     <!--        android:orientation="vertical">-->
 
     <!--        <ImageView-->
-    <!--            android:id="@+id/product_image"-->
+    <!--            android:id="@+id/productImage"-->
     <!--            android:layout_width="match_parent"-->
     <!--            android:layout_height="248dp"-->
     <!--            android:scaleType="centerCrop">-->
@@ -160,7 +176,7 @@
     <!--        </ImageView>-->
 
     <!--        <TextView-->
-    <!--            android:id="@+id/product_name"-->
+    <!--            android:id="@+id/productName"-->
     <!--            android:layout_width="match_parent"-->
     <!--            android:layout_height="44dp"-->
     <!--            android:layout_gravity="start"-->
@@ -244,7 +260,7 @@
 <!--            android:orientation="vertical">-->
 
 <!--            <ImageView-->
-<!--                android:id="@+id/product_image"-->
+<!--                android:id="@+id/productImage"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                android:scaleType="centerCrop">-->
@@ -252,7 +268,7 @@
 <!--            </ImageView>-->
 
 <!--            <TextView-->
-<!--                android:id="@+id/product_name"-->
+<!--                android:id="@+id/productName"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                android:layout_gravity="start"-->

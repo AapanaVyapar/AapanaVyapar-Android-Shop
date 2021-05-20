@@ -26,5 +26,6 @@ service ViewProviderService {
   rpc UpdateOperationalHours (UpdateOperationalHoursRequest) returns (UpdateOperationalHoursResponse);
 
   rpc GetOrders (GetOrdersRequest) returns (stream GetOrdersResponse);
+  rpc GetProducts (GetProductsRequest) returns (stream GetProductsResponse);
 
 }

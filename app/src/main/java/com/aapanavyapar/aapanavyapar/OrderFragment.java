@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,15 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.aapanavyapar.adapter.OrderedProductAdapter;
-import com.aapanavyapar.adapter.ProductAdapter;
 import com.aapanavyapar.viewData.OrderedProductData;
-import com.aapanavyapar.viewData.ProductData;
-
-import java.util.ArrayList;
 
 
 public class OrderFragment extends Fragment {

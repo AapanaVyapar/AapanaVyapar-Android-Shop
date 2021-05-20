@@ -38,25 +38,19 @@ public class ViewProvider extends AppCompatActivity {
 
 
         setContentView(R.layout.view_provider);
-        Toast.makeText(this.getApplicationContext(), "View Provider...", Toast.LENGTH_LONG).show();
-
-
             BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
             bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
-                        case R.id.av_trend:
-                            selectedFragment = new TrendingFragment();
-                            break;
-                        case R.id.av_search:
-                            selectedFragment = new SearchFragment();
+                        case R.id.av_product:
+                            selectedFragment = new ProductFragment();
                             break;
                         case R.id.av_orders:
                             selectedFragment = new OrderFragment();
                             break;
-                        case R.id.av_profile:
+                        case R.id.av_shop:
                             selectedFragment = new ProfileFragment();
                             break;
                     }
@@ -64,7 +58,8 @@ public class ViewProvider extends AppCompatActivity {
                     return true;
                 }
             });
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TrendingFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductFragment()).commit();
         }
 }
 
+// Product, Shop, Orders

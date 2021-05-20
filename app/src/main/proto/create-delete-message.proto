@@ -41,7 +41,6 @@ message AddProductRequest {
   string Token = 32;
   string ApiKey = 33;
   string Title = 34;
-  string ShortDescription = 35;
   string Description = 36;
   string ShippingInfo = 37;
   uint32 Stock = 38;

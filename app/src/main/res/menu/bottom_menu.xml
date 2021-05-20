@@ -2,23 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/av_trend"
-        android:icon="@drawable/ic_trend"
-        android:title="Trending" />
-
-    <item
-        android:id="@+id/av_search"
-        android:icon="@drawable/ic_search"
-        android:title="Search"/>
+        android:id="@+id/av_product"
+        android:icon="@drawable/list_add"
+        android:title="Products" />
 
     <item
         android:id="@+id/av_orders"
         android:icon="@drawable/ic_order"
-        android:title="Orders" />
+        android:title="Orders"/>
 
     <item
-        android:id="@+id/av_profile"
-        android:icon="@drawable/ic_profile"
+        android:id="@+id/av_shop"
+        android:icon="@drawable/store_front"
         android:title="Profile" />
 
 </menu>

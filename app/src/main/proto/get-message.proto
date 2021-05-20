@@ -43,3 +43,19 @@ message GetOrdersResponse {
   Address address = 60;
 }
 
+message GetProductsRequest {
+  string ApiKey = 79;
+  string Token = 80;
+}
+
+message GetProductsResponse {
+  string productName = 81;
+  string Description = 82;
+  string ShippingInfo = 83;
+  uint32 Stock = 84;
+  float Price = 85;
+  uint32 Offer = 86;
+  repeated string Images = 87;
+  repeated Category Category = 88;
+}
+
