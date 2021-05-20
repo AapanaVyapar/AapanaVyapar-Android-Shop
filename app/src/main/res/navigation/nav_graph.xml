@@ -12,12 +12,12 @@
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_WelcomeFragment_to_SigninFragment"
-            app:popUpTo="@id/nav_graph"
+            app:popUpTo="@id/WelcomeFragment"
             app:popUpToInclusive="true"
             app:destination="@id/SigninFragment" />
         <action
             android:id="@+id/action_WelcomeFragment_to_CreateShopFragment"
-            app:popUpTo="@id/nav_graph"
+            app:popUpTo="@id/WelcomeFragment"
             app:popUpToInclusive="true"
             app:destination="@id/CreateShopFragment" />
     </fragment>
@@ -64,7 +64,7 @@
             app:destination="@id/SignupFragment" />
         <action
             android:id="@+id/action_SignupConfirmOtpFragment_to_CreateShopFragment"
-            app:popUpTo="@id/nav_graph"
+            app:popUpTo="@id/SignupConfirmOtpFragment"
             app:popUpToInclusive="true"
             app:destination="@id/CreateShopFragment" />
     </fragment>

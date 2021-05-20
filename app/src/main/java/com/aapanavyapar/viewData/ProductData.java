@@ -5,11 +5,12 @@ public class ProductData {
     String description;
     String shippingInfo;
     int stock;
+    int offer;
     double price;
     String[] Images;
     String category;
 
-    public ProductData(String productName, String description, String shippingInfo, int stock, double price, String[] images, String category) {
+    public ProductData(String productName, String description, String shippingInfo, int stock, double price, int offer, String[] images, String category) {
         this.productName = productName;
         this.description = description;
         this.shippingInfo = shippingInfo;
@@ -17,6 +18,7 @@ public class ProductData {
         this.price = price;
         Images = images;
         this.category = category;
+        this.offer = offer;
     }
 
     public String getProductName() {
@@ -25,6 +27,14 @@ public class ProductData {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public int getOffer() {
+        return offer;
+    }
+
+    public void setOffer(int offer) {
+        this.offer = offer;
     }
 
     public String getDescription() {

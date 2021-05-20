@@ -1,5 +1,6 @@
 package com.aapanavyapar.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +18,14 @@ import com.aapanavyapar.aapanavyapar.R;
 import com.aapanavyapar.viewData.ProductData;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 
 public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.ViewHolder> {
 
-    ProductData[] productDataList;
+    ArrayList<ProductData> productDataList;
     Context context;
 
-    public ProductDataAdapter(ProductData[] productData, Context activity) {
+    public ProductDataAdapter(ArrayList<ProductData> productData, Context activity) {
         this.productDataList = productData;
         this.context = activity;
     }
@@ -37,21 +39,24 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
         return viewHolder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ProductData productCard = productDataList[position];
+        final ProductData productCard = productDataList.get(position);
 
         Glide.with(this.context)
             .load(productCard.getImages()[0])
-            .centerCrop()
+            .fitCenter()
             .into(holder.image);
 
         holder.productName.setText(productCard.getProductName());
         holder.description.setText(productCard.getDescription());
         holder.shippingInfo.setText(productCard.getShippingInfo());
-        holder.stock.setText(productCard.getStock());
-        holder.price.setText(String.valueOf(productCard.getPrice()));
-        holder.category.setText(productCard.getCategory());
+        holder.stock.setText("Stock : " + String.valueOf(productCard.getStock()));
+        holder.price.setText("Price : " + String.valueOf(productCard.getPrice()) + " Paise");
+        holder.offer.setText("Offer : " + String.valueOf(productCard.getOffer()) + "%");
+        holder.category.setText("Category : " + productCard.getCategory());
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +70,12 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
 
     @Override
     public int getItemCount() {
-        return productDataList.length;
+        return productDataList.size();
+    }
+
+    public void notifyData(ArrayList<ProductData> myList) {
+        this.productDataList = myList;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -76,6 +86,7 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
         TextView price;
         ImageView image;
         TextView category;
+        TextView offer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +104,7 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
             price = itemView.findViewById(R.id.price);
             image = itemView.findViewById(R.id.productImage);
             category = itemView.findViewById(R.id.category);
+            offer = itemView.findViewById(R.id.offer);
         }
     }
 

@@ -86,6 +86,7 @@ public class CreateShop extends Fragment {
             if (Objects.requireNonNull(Navigation.findNavController(view).getCurrentDestination()).getId() == R.id.CreateShopFragment) {
                 NavDirections createShopNav = CreateShopDirections.actionCreateShopFragmentToSigninFragment();
                 Navigation.findNavController(view).navigate(createShopNav);
+                return;
             }
         }
 
@@ -107,7 +108,31 @@ public class CreateShop extends Fragment {
 
         createShop = view.findViewById(R.id.create_shop);
 
+
         view.findViewById(R.id.create_shop_SPORTS_AND_FITNESS).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_ELECTRIC).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_DEVOTIONAL).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_AGRICULTURAL).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_WOMENS_CLOTHING).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_WOMENS_ACCESSORIES).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_MENS_CLOTHING).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_MENS_ACCESSORIES).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_HOME_GADGETS).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_TOYS).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_ELECTRONIC).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_DECORATION).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_FOOD).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_STATIONERY).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_BAGS).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_HARDWARE).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_FURNITURE).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_PACKAGING_AND_PRINTING).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_BEAUTY_AND_PERSONAL_CARE).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_CHEMICALS).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_GARDEN).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_KITCHEN).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_MACHINERY).setOnClickListener(this::onCheckboxClicked);
+
 
         createShop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,8 +217,102 @@ public class CreateShop extends Fragment {
         switch(view.getId()) {
             case R.id.create_shop_SPORTS_AND_FITNESS:
                 if (checked)
+                    categories.add(Category.SPORTS_AND_FITNESS);
+                break;
+            case R.id.create_shop_ELECTRIC:
+                if (checked)
+                    categories.add(Category.ELECTRIC);
+                break;
+            case R.id.create_shop_DEVOTIONAL:
+                if (checked)
+                    categories.add(Category.DEVOTIONAL);
+                break;
+            case R.id.create_shop_AGRICULTURAL:
+                if (checked)
+                    categories.add(Category.AGRICULTURAL);
+                break;
+            case R.id.create_shop_WOMENS_CLOTHING:
+                if (checked)
+                    categories.add(Category.WOMENS_CLOTHING);
+                break;
+            case R.id.create_shop_WOMENS_ACCESSORIES:
+                if (checked)
+                    categories.add(Category.WOMENS_ACCESSORIES);
+                break;
+            case R.id.create_shop_MENS_CLOTHING:
+                if (checked)
+                    categories.add(Category.MENS_CLOTHING);
+                break;
+            case R.id.create_shop_MENS_ACCESSORIES:
+                if (checked)
+                    categories.add(Category.MENS_ACCESSORIES);
+                break;
+            case R.id.create_shop_HOME_GADGETS:
+                if (checked)
+                    categories.add(Category.HOME_GADGETS);
+                break;
+            case R.id.create_shop_TOYS:
+                if (checked)
+                    categories.add(Category.TOYS);
+                break;
+            case R.id.create_shop_ELECTRONIC:
+                if (checked)
                     categories.add(Category.ELECTRONIC);
                 break;
+            case R.id.create_shop_DECORATION:
+                if (checked)
+                    categories.add(Category.DECORATION);
+                break;
+            case R.id.create_shop_FOOD:
+                if (checked)
+                    categories.add(Category.FOOD);
+                break;
+            case R.id.create_shop_STATIONERY:
+                if (checked)
+                    categories.add(Category.STATIONERY);
+                break;
+            case R.id.create_shop_BAGS:
+                if (checked)
+                    categories.add(Category.BAGS);
+                break;
+            case R.id.create_shop_HARDWARE:
+                if (checked)
+                    categories.add(Category.HARDWARE);
+                break;
+            case R.id.create_shop_FURNITURE:
+                if (checked)
+                    categories.add(Category.FURNITURE);
+                break;
+            case R.id.create_shop_PACKAGING_AND_PRINTING:
+                if (checked)
+                    categories.add(Category.PACKAGING_AND_PRINTING);
+                break;
+            case R.id.create_shop_BEAUTY_AND_PERSONAL_CARE:
+                if (checked)
+                    categories.add(Category.BEAUTY_AND_PERSONAL_CARE);
+                break;
+            case R.id.create_shop_CHEMICALS:
+                if (checked)
+                    categories.add(Category.CHEMICALS);
+                break;
+            case R.id.create_shop_GARDEN:
+                if (checked)
+                    categories.add(Category.GARDEN);
+                break;
+            case R.id.create_shop_KITCHEN:
+                if (checked)
+                    categories.add(Category.KITCHEN);
+                break;
+            case R.id.create_shop_MACHINERY:
+                if (checked)
+                    categories.add(Category.MACHINERY);
+                break;
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mChannel.shutdown();
     }
 }
