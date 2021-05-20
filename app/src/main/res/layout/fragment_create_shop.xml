@@ -597,13 +597,13 @@
                 android:id="@+id/create_shop_country_phoneNo_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/asap_medium"
                 android:text="Business Phone No."
+                android:fontFamily="@font/asap_medium"
                 android:textColor="?android:textColor"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/create_shop_country_phoneNo_input"
                 app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="@+id/create_shop_country_phoneNo_input"
                 app:layout_constraintStart_toStartOf="@+id/create_shop_country_phoneNo_input"
                 app:layout_constraintTop_toBottomOf="@+id/space20"/>
 
@@ -631,9 +631,42 @@
                 app:layout_constraintTop_toBottomOf="@+id/create_shop_country_phoneNo_input"/>
 
 
+            <TextView
+                android:id="@+id/create_shop_category_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Select Category Of Your Shop"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/create_shop_electronics"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/create_shop_electronics"
+                app:layout_constraintTop_toBottomOf="@+id/space21" />
+
+            <CheckBox
+                android:id="@+id/create_shop_electronics"
+                android:text="Electronics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_shop_category_heading"/>
+
+
+
+            <Space
+                android:id="@+id/space22"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_shop_electronics"/>
+
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/create_shop"
                 android:layout_width="307dp"
                 android:layout_height="0dp"
                 android:background="?colorSecondary"
@@ -643,7 +676,7 @@
                 app:cornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space21"/>
+                app:layout_constraintTop_toBottomOf="@+id/space22"/>
 
 
             <Space
@@ -653,7 +686,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.48"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signup"
+                app:layout_constraintTop_toBottomOf="@+id/create_shop"
                 app:layout_constraintVertical_bias="0.0"/>
 
 

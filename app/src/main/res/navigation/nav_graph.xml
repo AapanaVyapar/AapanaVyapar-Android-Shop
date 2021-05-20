@@ -66,6 +66,12 @@
         android:name="com.aapanavyapar.aapanavyapar.CreateShop"
         android:label="Create Your Shop"
         tools:layout="@layout/fragment_create_shop">
+        <action
+            android:id="@+id/action_CreateShopFragment_to_SigninFragment"
+            app:destination="@id/SigninFragment" />
+        <action
+            android:id="@+id/action_CreateShopFragment_to_SignupFragment"
+            app:destination="@id/SignupFragment" />
     </fragment>
     <fragment
         android:id="@+id/ForgotPasswordFragment"
