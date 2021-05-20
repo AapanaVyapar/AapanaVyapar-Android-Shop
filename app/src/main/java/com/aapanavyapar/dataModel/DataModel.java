@@ -40,6 +40,10 @@ public class DataModel extends ViewModel {
         return passToken;
     }
 
+    public int[] getAccess() {
+        return access;
+    }
+
     public boolean CanWeUseTokenForThis(int method){
         if(this.access == null) {
             return false;

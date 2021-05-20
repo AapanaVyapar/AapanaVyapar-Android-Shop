@@ -1,6 +1,7 @@
 package com.aapanavyapar.aapanavyapar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -82,7 +83,7 @@ public class CreateShop extends Fragment {
         if(!dataModel.CanWeUseTokenForThis(constants.External)){
             Toast.makeText(getContext(), "Please Try Again ..!!", Toast.LENGTH_LONG).show();
 
-            if (Objects.requireNonNull(Navigation.findNavController(view).getCurrentDestination()).getId() == R.id.SignupConfirmOtpFragment) {
+            if (Objects.requireNonNull(Navigation.findNavController(view).getCurrentDestination()).getId() == R.id.CreateShopFragment) {
                 NavDirections createShopNav = CreateShopDirections.actionCreateShopFragmentToSigninFragment();
                 Navigation.findNavController(view).navigate(createShopNav);
             }
@@ -106,7 +107,7 @@ public class CreateShop extends Fragment {
 
         createShop = view.findViewById(R.id.create_shop);
 
-        view.findViewById(R.id.create_shop_electronics).setOnClickListener(this::onCheckboxClicked);
+        view.findViewById(R.id.create_shop_SPORTS_AND_FITNESS).setOnClickListener(this::onCheckboxClicked);
 
         createShop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,8 +151,33 @@ public class CreateShop extends Fragment {
                         .build();
                 try {
                     CreateShopResponse shopResponse = blockingStub.withDeadlineAfter(1, TimeUnit.MINUTES).createShop(request);
+                    if(!shopResponse.getOk()){
+                        Toast.makeText(getContext(), "Fail To Create Shop ..!!", Toast.LENGTH_LONG).show();
+
+                        if (Objects.requireNonNull(Navigation.findNavController(view).getCurrentDestination()).getId() == R.id.CreateShopFragment) {
+                            NavDirections createShopNav = CreateShopDirections.actionCreateShopFragmentToSigninFragment();
+                            Navigation.findNavController(view).navigate(createShopNav);
+                        }
+
+                    }
+
+                    Toast.makeText(getContext(),"Success Shop ..!!", Toast.LENGTH_LONG).show();
+
+                    Intent intent  = new Intent(getContext(), ViewProvider.class);
+                    intent.putExtra("Token", dataModel.getRefreshToken());
+                    intent.putExtra("AuthToken", dataModel.getAuthToken());
+                    intent.putExtra("Access",dataModel.getAccess());
+                    startActivity(intent);
+
+
                 }catch (StatusRuntimeException e){
                     e.printStackTrace();
+                    Toast.makeText(getContext(), "Fail To Create Shop ..!!", Toast.LENGTH_LONG).show();
+
+                    if (Objects.requireNonNull(Navigation.findNavController(view).getCurrentDestination()).getId() == R.id.CreateShopFragment) {
+                        NavDirections createShopNav = CreateShopDirections.actionCreateShopFragmentToSigninFragment();
+                        Navigation.findNavController(view).navigate(createShopNav);
+                    }
 
                 }
             }
@@ -163,7 +189,7 @@ public class CreateShop extends Fragment {
         boolean checked = ((CheckBox) view).isChecked();
 
         switch(view.getId()) {
-            case R.id.create_shop_electronics:
+            case R.id.create_shop_SPORTS_AND_FITNESS:
                 if (checked)
                     categories.add(Category.ELECTRONIC);
                 break;

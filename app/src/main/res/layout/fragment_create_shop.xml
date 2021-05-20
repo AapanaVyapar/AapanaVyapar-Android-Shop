@@ -640,14 +640,14 @@
                 android:textColor="?android:textColor"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/create_shop_electronics"
+                app:layout_constraintEnd_toEndOf="@+id/create_shop_SPORTS_AND_FITNESS"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/create_shop_electronics"
+                app:layout_constraintStart_toStartOf="@+id/create_shop_SPORTS_AND_FITNESS"
                 app:layout_constraintTop_toBottomOf="@+id/space21" />
 
             <CheckBox
-                android:id="@+id/create_shop_electronics"
-                android:text="Electronics"
+                android:id="@+id/create_shop_SPORTS_AND_FITNESS"
+                android:text="SPORTS_AND_FITNESS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -662,7 +662,7 @@
                 android:layout_height="@dimen/major_component_gap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_shop_electronics"/>
+                app:layout_constraintTop_toBottomOf="@+id/create_shop_SPORTS_AND_FITNESS"/>
 
 
             <Button
@@ -739,4 +739,29 @@
 <!--app:layout_constraintEnd_toEndOf="parent"-->
 <!--app:layout_constraintStart_toStartOf="parent"-->
 <!--app:layout_constraintTop_toBottomOf="@+id/input"/>-->
+
+
+<!--    SPORTS_AND_FITNESS = 0;-->
+<!--    ELECTRIC = 1;-->
+<!--    DEVOTIONAL = 2;-->
+<!--    AGRICULTURAL = 3;-->
+<!--    WOMENS_CLOTHING = 4;-->
+<!--    WOMENS_ACCESSORIES = 5;-->
+<!--    MENS_CLOTHING = 6;-->
+<!--    MENS_ACCESSORIES = 7;-->
+<!--    HOME_GADGETS = 8;-->
+<!--    TOYS = 9;-->
+<!--    ELECTRONIC = 10;-->
+<!--    DECORATION = 11;-->
+<!--    FOOD = 12;-->
+<!--    STATIONERY = 13;-->
+<!--    BAGS = 14;-->
+<!--    HARDWARE = 15;-->
+<!--    FURNITURE = 16;-->
+<!--    PACKAGING_AND_PRINTING = 17;-->
+<!--    BEAUTY_AND_PERSONAL_CARE = 18;-->
+<!--    CHEMICALS = 19;-->
+<!--    GARDEN = 20;-->
+<!--    KITCHEN = 21;-->
+<!--    MACHINERY = 22;-->
 
