@@ -1,148 +1,141 @@
 package com.aapanavyapar.aapanavyapar;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import static java.lang.Long.getLong;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.aapanavyapar.aapanavyapar.services.GetShopDetailsRequest;
+import com.aapanavyapar.aapanavyapar.services.GetShopDetailsResponse;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.dataModel.DataModel;
+import com.aapanavyapar.serviceWrappers.UpdateToken;
+
+import java.util.concurrent.TimeUnit;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 
 
 public class ProfileFragment extends Fragment {
 
-    EditText userName,fullName,houseDetails,streetDetails,landMark,pinCode,city,state,country,mobileNo;
-    Button Add;
+    private DataModel dataModel;
+
+    ManagedChannel mChannel;
+    ViewProviderServiceGrpc.ViewProviderServiceBlockingStub blockingStub;
+
+    TextView categoryEditText;
+    EditText shopNameEditText, primaryImageEditText, imageUrlsEditText, businessInfoEditText, locationEditText;
+    EditText fullNameEditText, houseDetailsEditText, streetEditText, landmarkEditText, pinCodeEditText, cityEditText, stateEditText, countryEditText, businessPhoneEditText;
+    Button update;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
-        ProfileDB g = new ProfileDB(getContext());
-        SQLiteDatabase db = g.getReadableDatabase();
 
-    //        LinearLayout layout = (LinearLayout)view.findViewById(R.id.profile_fragment_layout);
-    //        Add = new Button(getContext());
-    //        Add.setText("SET");
-
-        userName = view.findViewById(R.id.profile_edittext_user_name);
-        fullName = view.findViewById(R.id.profile_edit_text_fullname);
-        houseDetails = view.findViewById(R.id.profile_edit_text_housedetails);
-        streetDetails = view.findViewById(R.id.profile_edit_text_streetdetails);
-        landMark = view.findViewById(R.id.profile_edit_text_landmark);
-        pinCode = view.findViewById(R.id.profile_edit_text_pincode);
-        city = view.findViewById(R.id.profile_edit_text_city);
-        state = view.findViewById(R.id.profile_edit_text_state);
-        country = view.findViewById(R.id.profile_edit_text_country);
-        mobileNo = view.findViewById(R.id.profile_edit_text_mobileno);
-        Add = view.findViewById(R.id.profile_button);
-
-
-
-        Add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String UserName = userName.getText().toString();
-                String FullName = fullName.getText().toString();
-                String HouseDetails = houseDetails.getText().toString();
-                String StreetDetails = streetDetails.getText().toString();
-                String LandMark = landMark.getText().toString();
-                String PinCode = pinCode.getText().toString();
-                String City = city.getText().toString();
-                String State = state.getText().toString();
-                String Country = country.getText().toString();
-                String MobileNo = mobileNo.getText().toString();
-
-                if(UserName.isEmpty()||FullName.isEmpty()||
-                        HouseDetails.isEmpty()||StreetDetails.isEmpty()||
-                        LandMark.isEmpty()||PinCode.isEmpty()||City.isEmpty()||
-                        State.isEmpty()||Country.isEmpty()||MobileNo.isEmpty()
-                ){
-                    Toast.makeText(getContext(),"fill all required fields",Toast.LENGTH_SHORT).show();
-                }
-                else{
-
-
-                    boolean i= g.insert_Data(UserName,FullName,
-                            HouseDetails,StreetDetails,LandMark,
-                           PinCode,City,State,Country,MobileNo);
-                    if(i){
-                        Toast.makeText(getContext(),"Successful",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(getContext(),"Not Successful",Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            }
-        });
-
-        if(g.profileInfo()){
-            Cursor t = g.getInfo();
-            while(t.moveToNext()) {
-                userName.setText(t.getString(1));
-                fullName.setText(t.getString(2));
-                houseDetails.setText(t.getString(3));
-                streetDetails.setText(t.getString(4));
-                landMark.setText(t.getString(5));
-                pinCode.setText(t.getString(6));
-                city.setText(t.getString(7));
-                state.setText(t.getString(8));
-                country.setText(t.getString(9));
-                mobileNo.setText(t.getString(10));
-            }
-        }
-        else {
-            userName.setText("");
-            fullName.setText("");
-            houseDetails.setText("");
-            streetDetails.setText("");
-            landMark.setText("");
-            pinCode.setText("");
-            city.setText("");
-            state.setText("");
-            country.setText("");
-            mobileNo.setText("");
-        }
-    }
-
-//    public Boolean checkFieldEmpty(){
-//        String UserName = userName.getText().toString();
-//           String FullName = fullName.getText().toString();
-//            String HouseDetails = houseDetails.getText().toString();
-//            String StreetDetails = streetDetails.getText().toString();
-//            String LandMark = landMark.getText().toString();
-//            String PinCode = pinCode.getText().toString();
-//            String City = city.getText().toString();
-//            String State = state.getText().toString();
-//            String Country = country.getText().toString();
-//            String MobileNo = mobileNo.getText().toString();
-//        if(UserName.isEmpty()||FullName.isEmpty()||
-//                   HouseDetails.isEmpty()||StreetDetails.isEmpty()||
-//                    LandMark.isEmpty()||PinCode.isEmpty()||City.isEmpty()||
-//                    State.isEmpty()||Country.isEmpty()||MobileNo.isEmpty()
-//            ) return false;
-//
-//        else return true;
-//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        dataModel = new ViewModelProvider(requireActivity()).get(DataModel.class);
+
+        mChannel = ManagedChannelBuilder.forTarget(MainActivity.VIEW_SERVICE_ADDRESS).usePlaintext().build();
+
+        blockingStub = ViewProviderServiceGrpc.newBlockingStub(mChannel);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
+
+        shopNameEditText = view.findViewById(R.id.profile_shop_shop_name_input);
+        primaryImageEditText = view.findViewById(R.id.profile_shop_primary_image_input);
+        primaryImageEditText = view.findViewById(R.id.profile_shop_primary_image_input);
+        imageUrlsEditText = view.findViewById(R.id.profile_shop_images_input);
+        businessInfoEditText = view.findViewById(R.id.profile_shop_business_info_input);
+        locationEditText = view.findViewById(R.id.profile_shop_location_input);
+        fullNameEditText = view.findViewById(R.id.profile_shop_full_name_input);
+        houseDetailsEditText = view.findViewById(R.id.profile_shop_street_house_details_input);
+        streetEditText = view.findViewById(R.id.profile_shop_street_details_input);
+        landmarkEditText = view.findViewById(R.id.profile_shop_landmark_input);
+        pinCodeEditText = view.findViewById(R.id.profile_shop_pin_code_input);
+        cityEditText = view.findViewById(R.id.profile_shop_city_input);
+        stateEditText = view.findViewById(R.id.profile_shop_state_input);
+        countryEditText = view.findViewById(R.id.profile_shop_country_input);
+        businessPhoneEditText = view.findViewById(R.id.profile_shop_phoneNo_input);
+        categoryEditText = view.findViewById(R.id.profile_shop_category);
+
+        update = view.findViewById(R.id.updateData);
+
+        try {
+            GetShopDetailsRequest request = GetShopDetailsRequest.newBuilder()
+                    .setApiKey(MainActivity.API_KEY)
+                    .setToken(dataModel.getAuthToken())
+                    .build();
+            GetShopDetailsResponse shopDetailsResponse = blockingStub.withDeadlineAfter(5, TimeUnit.MINUTES).getShopDetails(request);
+
+            shopNameEditText.setText(shopDetailsResponse.getShopName());
+            primaryImageEditText.setText(shopDetailsResponse.getPrimaryImage());
+            imageUrlsEditText.setText(shopDetailsResponse.getImagesList().toString());
+            businessInfoEditText.setText(shopDetailsResponse.getBusinessInformation());
+            locationEditText.setText(shopDetailsResponse.getLocation().getLatitude() + "," + shopDetailsResponse.getLocation().getLongitude());
+            fullNameEditText.setText(shopDetailsResponse.getAddress().getFullName());
+            houseDetailsEditText.setText(shopDetailsResponse.getAddress().getHouseDetails());
+            streetEditText.setText(shopDetailsResponse.getAddress().getStreetDetails());
+            landmarkEditText.setText(shopDetailsResponse.getAddress().getLandMark());
+            pinCodeEditText.setText(shopDetailsResponse.getAddress().getPinCode());
+            cityEditText.setText(shopDetailsResponse.getAddress().getCity());
+            stateEditText.setText(shopDetailsResponse.getAddress().getState());
+            countryEditText.setText(shopDetailsResponse.getAddress().getCountry());
+            businessPhoneEditText.setText(shopDetailsResponse.getAddress().getPhoneNo());
+            categoryEditText.setText(shopDetailsResponse.getCategoryList().toString());
+
+        }catch (StatusRuntimeException e) {
+            e.printStackTrace();
+
+            if (e.getMessage().equals("UNAUTHENTICATED: Request With Invalid Token")) {
+                Toast.makeText(view.getContext(), "Update Refresh Token", Toast.LENGTH_SHORT).show();
+                UpdateToken updateToken = new UpdateToken();
+                if (updateToken.GetUpdatedToken(dataModel.getRefreshToken())) {
+                    dataModel.setAuthToken(updateToken.getAuthToken());
+
+                    try {
+                        GetShopDetailsRequest request = GetShopDetailsRequest.newBuilder()
+                                .setApiKey(MainActivity.API_KEY)
+                                .setToken(dataModel.getAuthToken())
+                                .build();
+                        GetShopDetailsResponse shopDetailsResponse = blockingStub.withDeadlineAfter(5, TimeUnit.MINUTES).getShopDetails(request);
+
+                    }catch (StatusRuntimeException e1) {
+                        Toast.makeText(view.getContext(), "Error Occurred Unable To Get Data", Toast.LENGTH_SHORT).show();
+                        e1.printStackTrace();
+                    }
+
+                } else {
+                    Toast.makeText(view.getContext(), "Unable To Update Token Please Try Again ..!!", Toast.LENGTH_SHORT).show();
+
+                }
+
+            } else {
+                Toast.makeText(view.getContext(), "Unable To Get Data", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mChannel.shutdown();
+    }
 }
