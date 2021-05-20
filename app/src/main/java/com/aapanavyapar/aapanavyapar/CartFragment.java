@@ -13,9 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aapanavyapar.adapter.CartProductAdapter;
-import com.aapanavyapar.adapter.OrderedProductAdapter;
 import com.aapanavyapar.viewData.CartProductData;
-import com.aapanavyapar.viewData.OrderedProductData;
 
 
 public class CartFragment extends Fragment {

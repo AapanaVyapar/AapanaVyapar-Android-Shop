@@ -4,24 +4,46 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Toast;
 
-import com.aapanavyapar.adapter.OrderedProductAdapter;
-import com.aapanavyapar.viewData.OrderedProductData;
+import com.aapanavyapar.aapanavyapar.services.GetOrdersRequest;
+import com.aapanavyapar.aapanavyapar.services.GetOrdersResponse;
+import com.aapanavyapar.aapanavyapar.services.GetProductsRequest;
+import com.aapanavyapar.aapanavyapar.services.GetProductsResponse;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.adapter.OrderDataAdapter;
+import com.aapanavyapar.dataModel.DataModel;
+import com.aapanavyapar.serviceWrappers.UpdateToken;
+import com.aapanavyapar.viewData.OrderData;
+import com.aapanavyapar.viewData.ProductData;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 
 
 public class OrderFragment extends Fragment {
 
-    ImageButton cartImageButton;
-    RecyclerView ordered_Recycler_View;
+    private DataModel dataModel;
+
+    RecyclerView orderRecycleView;
+
+    ManagedChannel mChannel;
+    ViewProviderServiceGrpc.ViewProviderServiceBlockingStub blockingStub;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +53,13 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        dataModel = new ViewModelProvider(requireActivity()).get(DataModel.class);
+
+        mChannel = ManagedChannelBuilder.forTarget(MainActivity.VIEW_SERVICE_ADDRESS).usePlaintext().build();
+
+        blockingStub = ViewProviderServiceGrpc.newBlockingStub(mChannel);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_order, container, false);
     }
@@ -39,34 +68,94 @@ public class OrderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        cartImageButton = view.findViewById(R.id.cart_imagebutton);
-        cartImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+        orderRecycleView = view.findViewById(R.id.order_recycler_view);
+        orderRecycleView.setHasFixedSize(true);
+        orderRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,CartFragment.class,null).addToBackStack(null).commit();
-//                NavDirections OrderFragmentToCartFragment = OrderFragment.actionOrderFragmentToCartFragment();
-//                Navigation.findNavController(view).navigate(OrderFragmentToCartFragment);
+        ArrayList<OrderData> orderData = new ArrayList<>();
+        OrderDataAdapter orderDataAdapter = new OrderDataAdapter(orderData, getContext());
+
+        orderRecycleView.setAdapter(orderDataAdapter);
+
+        try {
+            GetOrdersRequest request = GetOrdersRequest.newBuilder()
+                    .setApiKey(MainActivity.API_KEY)
+                    .setToken(dataModel.getAuthToken())
+                    .build();
+            Iterator<GetOrdersResponse> ordersResponseIterator = blockingStub.withDeadlineAfter(5, TimeUnit.MINUTES).getOrders(request);
+
+            while (ordersResponseIterator.hasNext()) {
+                GetOrdersResponse ordersResponse = ordersResponseIterator.next();
+                Log.d("ORDER_FRAGMENT", ordersResponse.getProductName());
+                orderData.add(new OrderData(
+                     ordersResponse.getProductId(),
+                     ordersResponse.getOrderId(),
+                     ordersResponse.getStatus().name(),
+                     ordersResponse.getDeliveryTimeStamp(),
+                     ordersResponse.getOrderTimeStamp(),
+                     ordersResponse.getPrice(),
+                     ordersResponse.getQuantity(),
+                     ordersResponse.getProductName(),
+                     ordersResponse.getProductImage(),
+                     ordersResponse.getAddress()
+                ));
+                orderDataAdapter.notifyData(orderData);
             }
-        });
 
-        ordered_Recycler_View = view.findViewById(R.id.orderd_recycler_view);
-        ordered_Recycler_View.setHasFixedSize(true);
-        ordered_Recycler_View.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        OrderedProductData[] ordered_product_data = new OrderedProductData[]{
-                new OrderedProductData(R.drawable.logoav,"Rolex Women's Watch","1234","2000","01","abc","10:00","12:00"),
-                new OrderedProductData(R.drawable.logoav,"Acer Laptop","5678","45000","01","abc","12:00","01:00"),
-                new OrderedProductData(R.drawable.logoav,"Classic Cheeseburger","9807","200","02","abc","03:00","05:00"),
-                new OrderedProductData(R.drawable.logoav,"Yonex Badminton Kit","1256","5000","01","abc","04:00","05:00"),
-        };
+        }catch (StatusRuntimeException e) {
+            e.printStackTrace();
 
-        OrderedProductAdapter ordered_product_adapter = new OrderedProductAdapter(ordered_product_data, getContext());
-        ordered_Recycler_View.setAdapter(ordered_product_adapter);
+            if (e.getMessage().equals("UNAUTHENTICATED: Request With Invalid Token")) {
+                Toast.makeText(view.getContext(), "Update Refresh Token", Toast.LENGTH_SHORT).show();
+                UpdateToken updateToken = new UpdateToken();
+                if (updateToken.GetUpdatedToken(dataModel.getRefreshToken())) {
+                    dataModel.setAuthToken(updateToken.getAuthToken());
 
-//        orderRecyclerView.setHasFixedSize(true);
-//        orderRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    try {
+                        GetOrdersRequest request = GetOrdersRequest.newBuilder()
+                                .setApiKey(MainActivity.API_KEY)
+                                .setToken(dataModel.getAuthToken())
+                                .build();
+                        Iterator<GetOrdersResponse> ordersResponseIterator = blockingStub.withDeadlineAfter(5, TimeUnit.MINUTES).getOrders(request);
 
+                        while (ordersResponseIterator.hasNext()) {
+                            GetOrdersResponse ordersResponse = ordersResponseIterator.next();
+                            Log.d("ORDER_FRAGMENT", ordersResponse.getProductName());
+                            orderData.add(new OrderData(
+                                    ordersResponse.getProductId(),
+                                    ordersResponse.getOrderId(),
+                                    ordersResponse.getStatus().name(),
+                                    ordersResponse.getDeliveryTimeStamp(),
+                                    ordersResponse.getOrderTimeStamp(),
+                                    ordersResponse.getPrice(),
+                                    ordersResponse.getQuantity(),
+                                    ordersResponse.getProductName(),
+                                    ordersResponse.getProductImage(),
+                                    ordersResponse.getAddress()
+                            ));
+                            orderDataAdapter.notifyData(orderData);
+                        }
+
+                    }catch (StatusRuntimeException e1) {
+                        Toast.makeText(view.getContext(), "Error Occurred Unable To Get Data", Toast.LENGTH_SHORT).show();
+                        e1.printStackTrace();
+                    }
+
+                } else {
+                    Toast.makeText(view.getContext(), "Unable To Update Token Please Try Again ..!!", Toast.LENGTH_SHORT).show();
+
+                }
+
+            } else {
+                Toast.makeText(view.getContext(), "Unable To Get Data", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mChannel.shutdown();
     }
 }

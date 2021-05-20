@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/orderImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop">
+
+        </ImageView>
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/orderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap"
+                android:textColor="?android:textColor"
+                android:layout_margin="10dp"
+                android:layout_gravity="start"
+                android:text="Product Name"
+                android:textAlignment="viewStart"
+                android:textStyle="bold"
+                android:textSize="20dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/orderQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="10dp"
+                android:text="Quantity : 20"
+                android:fontFamily="@font/asap"
+                android:textColor="?android:textColor"
+                android:textAlignment="viewStart">
+
+            </TextView>
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:id="@+id/orderPrice"
+                    android:text="1000 Paise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="21dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/orderId"
+            android:text="Order Id : "
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderStatus"
+            android:text="Status : "
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ordered On : "
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/orderDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delivery On : "
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:text="Delivery Address"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressFullName"
+            android:text="Full Name : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressHouseDetails"
+            android:text="House Details : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressStreetDetails"
+            android:text="Street Details : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressLandMark"
+            android:text="Landmark : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressPinCode"
+            android:text="PinCode : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressCity"
+            android:text="City : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressState"
+            android:text="State : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressCountry"
+            android:text="Country : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/orderAddressPhoneNo"
+            android:text="Phone No : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

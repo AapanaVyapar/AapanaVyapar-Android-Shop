@@ -17,15 +17,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
 import com.aapanavyapar.aapanavyapar.services.GetProductsRequest;
 import com.aapanavyapar.aapanavyapar.services.GetProductsResponse;
 import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
-import com.aapanavyapar.adapter.OrderedProductAdapter;
 import com.aapanavyapar.adapter.ProductDataAdapter;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;
-import com.aapanavyapar.viewData.OrderedProductData;
 import com.aapanavyapar.viewData.ProductData;
 
 import java.util.ArrayList;
@@ -45,7 +42,6 @@ public class ProductFragment extends Fragment {
 
     ManagedChannel mChannel;
     ViewProviderServiceGrpc.ViewProviderServiceBlockingStub blockingStub;
-    ViewProviderServiceGrpc.ViewProviderServiceStub asyncStub;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +57,6 @@ public class ProductFragment extends Fragment {
         mChannel = ManagedChannelBuilder.forTarget(MainActivity.VIEW_SERVICE_ADDRESS).usePlaintext().build();
 
         blockingStub = ViewProviderServiceGrpc.newBlockingStub(mChannel);
-        asyncStub = ViewProviderServiceGrpc.newStub(mChannel);
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_product, container, false);

@@ -62,8 +62,8 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
             @Override
             public void onClick(View v) {
                 Toast.makeText(context , productCard.getProductName(),Toast.LENGTH_LONG).show();
-                AppCompatActivity activity = (AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ProductOnCardClick.class,null).addToBackStack(null).commit();
+//                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ProductOnCardClick.class,null).addToBackStack(null).commit();
             }
         });
     }
