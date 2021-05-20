@@ -69,7 +69,7 @@ public class CreateShop extends Fragment {
         // Inflate the layout for this fragment
 
         dataModel = new ViewModelProvider(requireActivity()).get(DataModel.class);
-        mChannel = ManagedChannelBuilder.forTarget(MainActivity.AUTH_SERVICE_ADDRESS).usePlaintext().build();
+        mChannel = ManagedChannelBuilder.forTarget(MainActivity.VIEW_SERVICE_ADDRESS).usePlaintext().build();
         blockingStub = ViewProviderServiceGrpc.newBlockingStub(mChannel);
 
         categories = new ArrayList<>();
@@ -159,16 +159,17 @@ public class CreateShop extends Fragment {
                             Navigation.findNavController(view).navigate(createShopNav);
                         }
 
+                    }else {
+
+                        Toast.makeText(getContext(), "Success Shop ..!!", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(getContext(), ViewProvider.class);
+                        intent.putExtra("Token", dataModel.getRefreshToken());
+                        intent.putExtra("AuthToken", dataModel.getAuthToken());
+//                        intent.putExtra("ShopData", shopInfo);
+                        intent.putExtra("Access", dataModel.getAccess());
+                        startActivity(intent);
                     }
-
-                    Toast.makeText(getContext(),"Success Shop ..!!", Toast.LENGTH_LONG).show();
-
-                    Intent intent  = new Intent(getContext(), ViewProvider.class);
-                    intent.putExtra("Token", dataModel.getRefreshToken());
-                    intent.putExtra("AuthToken", dataModel.getAuthToken());
-                    intent.putExtra("Access",dataModel.getAccess());
-                    startActivity(intent);
-
 
                 }catch (StatusRuntimeException e){
                     e.printStackTrace();

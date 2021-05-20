@@ -9,7 +9,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.aapanavyapar.dataModel.DataModel;
+import com.aapanavyapar.serviceWrappers.GetShopInfo;
 import com.aapanavyapar.serviceWrappers.UpdateToken;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,13 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
 //    tcp://0.tcp.ngrok.io:18538
 
-    public static String VIEW_SERVICE_ADDRESS = "0.tcp.ngrok.io:18538";
-    public static String AUTH_SERVICE_ADDRESS = "2.tcp.ngrok.io:12689";
+    public static String VIEW_SERVICE_ADDRESS = "192.168.43.200:4459";
+    public static String AUTH_SERVICE_ADDRESS = "192.168.43.200:4659";
 //    public static final int port = 4356;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         MainActivity.API_KEY = new String(Base64.decode(getNativeKey(), Base64.DEFAULT));
 
         if(checkInternetConnection()) {
@@ -50,10 +59,32 @@ public class MainActivity extends AppCompatActivity {
                     int[] accessInt = AuthDB.convertStringToArray(access);
                     UpdateToken updateToken = new UpdateToken();
                     if (updateToken.GetUpdatedToken(token)) {
-                        Intent intent = new Intent(getApplicationContext(), ViewProvider.class);
-                        intent.putExtra("Token", token);
-                        intent.putExtra("Access", accessInt);
-                        startActivity(intent);
+
+                        GetShopInfo shopInfo = new GetShopInfo();
+                        int res = shopInfo.GetShopDetails(updateToken.getAuthToken());
+                        if(res == 0){
+
+                            DataModel dataModel = new ViewModelProvider(this).get(DataModel.class);
+                            dataModel.setTokens(updateToken.getAuthToken(), token, accessInt);
+
+                            NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                                            .findFragmentById(R.id.nav_host_fragment);
+
+                            NavController navController = navHostFragment.getNavController();
+
+                            NavDirections actionToUp = WelcomeFragmentDirections.actionWelcomeFragmentToCreateShopFragment();
+                            navController.navigate(actionToUp);
+
+                        }else if (res == 1){
+                            Intent intent = new Intent(getApplicationContext(), ViewProvider.class);
+                            intent.putExtra("Token", token);
+                            intent.putExtra("AuthToken", updateToken.getAuthToken());
+                            intent.putExtra("Access", accessInt);
+                            startActivity(intent);
+
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Server Error ..!!", Toast.LENGTH_LONG).show();
+                        }
                     } else {
                         authdb.clearDatabase();
                     }
@@ -61,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-
-        setContentView(R.layout.activity_main);
     }
 
     private boolean checkInternetConnection() {

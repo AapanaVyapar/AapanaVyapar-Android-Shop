@@ -28,10 +28,12 @@ public class ViewProvider extends AppCompatActivity {
 
         Intent intent = getIntent();
         String token = intent.getStringExtra("Token");
+        String authToken = intent.getStringExtra("AuthToken");
         int[] access =  intent.getIntArrayExtra("Access");
 
         DataModel dataModel = new ViewModelProvider(this).get(DataModel.class);
         dataModel.setRefreshToken(token);
+        dataModel.setAuthToken(authToken);
         dataModel.setAccess(access);
 
 

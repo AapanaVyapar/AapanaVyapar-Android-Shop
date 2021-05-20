@@ -24,8 +24,10 @@ import com.aapanavyapar.aapanavyapar.services.SignInRequest;
 import com.aapanavyapar.aapanavyapar.services.SignInResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
+import com.aapanavyapar.serviceWrappers.GetShopInfo;
 import com.aapanavyapar.validators.validators;
 
+import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 import io.grpc.ManagedChannel;
@@ -114,11 +116,23 @@ public class SigninFragment extends Fragment {
 
                         authdb.insertData(dataModel.getRefreshToken(),access);
 
-                        Intent intent  = new Intent(getContext(), ViewProvider.class);
-                        intent.putExtra("Token",dataModel.getRefreshToken());
-                        intent.putExtra("AuthToken",dataModel.getAuthToken());
-                        intent.putExtra("Access",access);
-                        startActivity(intent);
+
+                        GetShopInfo shopInfo = new GetShopInfo();
+                        int res = shopInfo.GetShopDetails(dataModel.getAuthToken());
+                        if(res == 0){
+                            NavDirections actionToUp = SigninFragmentDirections.actionSigninFragmentToCreateShopFragment();
+                            Navigation.findNavController(view).navigate(actionToUp);
+                        }else if(res == 1){
+                            Intent intent = new Intent(getContext(), ViewProvider.class);
+                            intent.putExtra("Token", dataModel.getRefreshToken());
+                            intent.putExtra("AuthToken", dataModel.getAuthToken());
+//                        intent.putExtra("ShopData", shopInfo);
+                            intent.putExtra("Access", access);
+                            startActivity(intent);
+
+                        }else {
+                            Toast.makeText(getContext(), "Server Error ..!!", Toast.LENGTH_LONG).show();
+                        }
 
                     }catch (StatusRuntimeException e){
 
