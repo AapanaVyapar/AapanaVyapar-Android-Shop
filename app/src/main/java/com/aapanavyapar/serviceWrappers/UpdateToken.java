@@ -1,9 +1,9 @@
 package com.aapanavyapar.serviceWrappers;
 
+import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyapar.services.NewTokenRequest;
+import com.aapanavyapar.aapanavyapar.services.NewTokenResponse;
 import com.aapanavyapar.aapanavyaparShop.MainActivity;
-import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyaparShop.services.NewTokenRequest;
-import com.aapanavyapar.aapanavyaparShop.services.NewTokenResponse;
 
 import java.util.concurrent.TimeUnit;
 

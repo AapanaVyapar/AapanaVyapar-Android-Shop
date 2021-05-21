@@ -19,9 +19,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyaparShop.services.SignInRequest;
-import com.aapanavyapar.aapanavyaparShop.services.SignInResponse;
+import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyapar.services.SignInRequest;
+import com.aapanavyapar.aapanavyapar.services.SignInResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.GetShopInfo;

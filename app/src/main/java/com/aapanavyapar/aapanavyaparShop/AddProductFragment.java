@@ -16,10 +16,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyaparShop.services.AddProductRequest;
-import com.aapanavyapar.aapanavyaparShop.services.AddProductResponse;
-import com.aapanavyapar.aapanavyaparShop.services.Category;
-import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyapar.services.AddProductRequest;
+import com.aapanavyapar.aapanavyapar.services.AddProductResponse;
+import com.aapanavyapar.aapanavyapar.services.Category;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;
 

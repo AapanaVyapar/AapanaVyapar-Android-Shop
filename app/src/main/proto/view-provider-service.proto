@@ -16,6 +16,9 @@ service ViewProviderService {
   rpc DelProduct (DelProductRequest) returns (DelProductResponse);
 
   rpc GetShopDetails (GetShopDetailsRequest) returns (GetShopDetailsResponse);
+
+  rpc UpdateProductData (UpdateProductDataRequest) returns (UpdateProductDataResponse);
+
   rpc UpdateShopPrimaryImage (UpdateShopPrimaryImageRequest) returns (UpdateShopPrimaryImageResponse);
 
   rpc UpdateShopKeeperName (UpdateShopKeeperNameRequest) returns (UpdateShopKeeperNameResponse);

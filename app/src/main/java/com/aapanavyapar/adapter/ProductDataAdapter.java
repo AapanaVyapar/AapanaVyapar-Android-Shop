@@ -2,6 +2,7 @@ package com.aapanavyapar.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aapanavyapar.aapanavyaparShop.ProductOnCardClick;
 import com.aapanavyapar.aapanavyaparShop.R;
 import com.aapanavyapar.viewData.ProductData;
 import com.bumptech.glide.Glide;
@@ -60,8 +63,10 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
             @Override
             public void onClick(View v) {
                 Toast.makeText(context , productCard.getProductName(),Toast.LENGTH_LONG).show();
-//                AppCompatActivity activity = (AppCompatActivity)v.getContext();
-//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ProductOnCardClick.class,null).addToBackStack(null).commit();
+                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                Bundle args = new Bundle();
+                args.putSerializable("dataFill", productCard);
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ProductOnCardClick.class, args).addToBackStack(null).commit();
             }
         });
     }

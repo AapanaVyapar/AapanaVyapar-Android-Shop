@@ -1,6 +1,9 @@
 package com.aapanavyapar.viewData;
 
-public class ProductData {
+import java.io.Serializable;
+
+public class ProductData implements Serializable {
+    String productId;
     String productName;
     String description;
     String shippingInfo;
@@ -10,7 +13,7 @@ public class ProductData {
     String[] Images;
     String category;
 
-    public ProductData(String productName, String description, String shippingInfo, int stock, double price, int offer, String[] images, String category) {
+    public ProductData(String productId, String productName, String description, String shippingInfo, int stock, double price, int offer, String[] images, String category) {
         this.productName = productName;
         this.description = description;
         this.shippingInfo = shippingInfo;
@@ -19,6 +22,15 @@ public class ProductData {
         Images = images;
         this.category = category;
         this.offer = offer;
+        this.productId = productId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -71,6 +83,19 @@ public class ProductData {
 
     public String[] getImages() {
         return Images;
+    }
+
+    public String getImagesString() {
+        String urls = "";
+        int count = 0;
+        for (String url : this.Images) {
+            if (count > 0){
+                urls += ",";
+            }
+            urls += url;
+            count++;
+        }
+        return urls;
     }
 
     public void setImages(String[] images) {

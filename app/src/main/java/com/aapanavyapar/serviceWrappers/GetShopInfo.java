@@ -1,9 +1,9 @@
 package com.aapanavyapar.serviceWrappers;
 
+import com.aapanavyapar.aapanavyapar.services.GetShopDetailsRequest;
+import com.aapanavyapar.aapanavyapar.services.GetShopDetailsResponse;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.aapanavyaparShop.MainActivity;
-import com.aapanavyapar.aapanavyaparShop.services.GetShopDetailsRequest;
-import com.aapanavyapar.aapanavyaparShop.services.GetShopDetailsResponse;
-import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
 
 import java.util.concurrent.TimeUnit;
 

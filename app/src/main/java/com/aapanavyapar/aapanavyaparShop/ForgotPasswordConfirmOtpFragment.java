@@ -17,11 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyaparShop.services.ConformForgetPasswordOTPRequest;
-import com.aapanavyapar.aapanavyaparShop.services.ConformForgetPasswordOTPResponse;
-import com.aapanavyapar.aapanavyaparShop.services.ResendOTPRequest;
-import com.aapanavyapar.aapanavyaparShop.services.ResendOTPResponse;
+import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyapar.services.ConformForgetPasswordOTPRequest;
+import com.aapanavyapar.aapanavyapar.services.ConformForgetPasswordOTPResponse;
+import com.aapanavyapar.aapanavyapar.services.ResendOTPRequest;
+import com.aapanavyapar.aapanavyapar.services.ResendOTPResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;

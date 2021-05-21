@@ -4,6 +4,26 @@ option go_package = ".;pb";
 option java_multiple_files = true;
 option java_package = "com.aapanavyapar.aapanavyapar.services";
 
+import "shop-view-common-message.proto";
+
+message UpdateProductDataRequest {
+  string Token = 55;
+  string ApiKey = 56;
+  string Title = 57;
+  string Description = 58;
+  string ShippingInfo = 59;
+  uint32 Stock = 60;
+  float Price = 61;
+  uint32 Offer = 62;
+  repeated string Images = 63;
+  repeated Category Category = 64;
+  string productId = 65;
+}
+
+message UpdateProductDataResponse {
+  bool ok = 67;
+}
+
 message UpdateShopPrimaryImageRequest {
 
 }

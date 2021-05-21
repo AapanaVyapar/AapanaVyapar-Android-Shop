@@ -1,183 +1,826 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProductOnCardClick"
-    android:clickable="true"
-    android:id="@+id/productoncardclick_constraintlayout">
+    android:id="@+id/product_on_click_fragment"
+    tools:context=".ProductOnCardClick">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        app:cardCornerRadius="10dp"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/productoncardclick_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logoav" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/sign_in_logo2"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:scrollbarSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.017"
+                app:srcCompat="@drawable/logoav" />
+
+            <TextView
+                android:id="@+id/sign_in_logo_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:fontFamily="@font/asap"
+                android:letterSpacing="0.1"
+                android:scrollbarSize="8dp"
+                android:text="AapanaVyapar"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/sign_in_logo2"
+                app:layout_constraintStart_toStartOf="@+id/sign_in_logo2"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_logo2"
+                tools:ignore="MissingConstraints"/>
+
+            <TextView
+                android:id="@+id/sign_up_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="62dp"
+                android:fontFamily="@font/inknut_antiqua_light"
+                android:text="Update Product"
+                android:textColor="?colorPrimary"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.182"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space6"/>
+
+            <TextView
+                android:id="@+id/sign_up_fill_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/antic"
+                android:text="Fill The Form To Publish"
+                android:textColor="?android:textColor"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/sign_up_heading"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/sign_up_heading"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_heading"/>
 
 
-    </LinearLayout>
+            <Space
+                android:id="@+id/space5"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_fill_form"/>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/click_product_product_name_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Product Name"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_name_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_name_input"
+                app:layout_constraintTop_toBottomOf="@+id/space5"/>
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/click_product_product_name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:hint="Enter Product Name"
+                android:inputType="textPersonName"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_name_heading"
+                app:layout_goneMarginEnd="2dp"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_productname_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Product Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <TextView
-        android:id="@+id/productoncardclick_productprice_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="264dp"
-        android:layout_marginTop="4dp"
-        android:text="Price :"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            <TextView
+                android:id="@+id/click_product_product_description_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:textColor="?android:textColor"
+                android:text="Product Description"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_description_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_description_input"
+                app:layout_constraintTop_toBottomOf="@+id/space7"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_price_amount_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="1000/-"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="@+id/productoncardclick_productprice_text"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            <EditText
+                android:id="@+id/click_product_product_description_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:hint="Enter Your Product Description"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_description_heading"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_quantity_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/productoncardclick_productname_text"
-        android:layout_marginTop="10dp"
-        android:text="Quantity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_productname_text" />
+            <TextView
+                android:id="@+id/click_product_product_shipping_info_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:textColor="?android:textColor"
+                android:text="Shipping Info"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_shipping_info_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_shipping_info_input"
+                app:layout_constraintTop_toBottomOf="@+id/space9"/>
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="44dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/productoncardclick_quantity_text"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_productname_text" />
+            <EditText
+                android:id="@+id/click_product_product_shipping_info_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:hint="Enter Shipping Info"
+                android:inputType="text"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_shipping_info_heading"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_stock_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/productoncardclick_productname_text"
-        android:layout_marginStart="264dp"
-        android:text="Available Stock :"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_productprice_text"
-        app:layout_constraintVertical_bias="0.027" />
+            <TextView
+                android:id="@+id/click_product_product_stock_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Stock"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_stock_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_stock_input"
+                app:layout_constraintTop_toBottomOf="@+id/space10"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_stockno_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/productoncardclick_productname_text"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="5dp"
-        android:text="10"
-        app:layout_constraintStart_toEndOf="@+id/productoncardclick_stock_text"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_productprice_text" />
+            <EditText
+                android:id="@+id/click_product_product_stock_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:inputType="numberDecimal"
+                android:hint="10"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_stock_heading"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_deliverycharges_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Delivery Charges :"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_quantity_text" />
+            <Space
+                android:id="@+id/space4"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_stock_input"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_deliveryamount_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10Rs"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@+id/productoncardclick_deliverycharges_text"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_quantity_text" />
 
-    <Button
-        android:id="@+id/productoncardclick_button_buy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="45dp"
-        android:text="Buy Now"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_stock_text" />
+            <TextView
+                android:id="@+id/click_product_product_price_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Price In Pisa"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_price_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_price_input"
+                app:layout_constraintTop_toBottomOf="@+id/space4"/>
 
-    <View
-        android:id="@+id/first_line"
-        android:layout_width="412dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_deliverycharges_text"/>
+            <EditText
+                android:id="@+id/click_product_product_price_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:inputType="numberDecimal"
+                android:hint="10"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_price_heading"/>
 
-    <TextView
-        android:id="@+id/productoncardclick_description_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_line" />
+            <Space
+                android:id="@+id/space14"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_price_input"/>
 
-    <View
-        android:id="@+id/second_line"
-        android:layout_width="412dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productoncardclick_description_text"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Shipping Info"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_line"/>
+            <TextView
+                android:id="@+id/click_product_product_offer_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Offer In Percentage"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_offer_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_offer_input"
+                app:layout_constraintTop_toBottomOf="@+id/space14"/>
 
+            <EditText
+                android:id="@+id/click_product_product_offer_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:inputType="numberDecimal"
+                android:hint="10"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_offer_heading"/>
+
+            <Space
+                android:id="@+id/space15"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_offer_input"/>
+
+
+
+            <TextView
+                android:id="@+id/click_product_product_images_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Product Images Urls"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_product_images_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_product_images_input"
+                app:layout_constraintTop_toBottomOf="@+id/space15"/>
+
+            <EditText
+                android:id="@+id/click_product_product_images_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D3CCCC"
+                android:ems="15"
+                android:fontFamily="@font/asap_medium"
+                android:inputType="text"
+                android:hint="url1,url2"
+                android:textColorHint="#BFBDBD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_images_heading"/>
+
+
+            <Space
+                android:id="@+id/space21"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_images_input"/>
+
+
+            <TextView
+                android:id="@+id/click_product_category_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap_medium"
+                android:text="Select Category Of Your product"
+                android:textColor="?android:textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/click_product_SPORTS_AND_FITNESS"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/click_product_SPORTS_AND_FITNESS"
+                app:layout_constraintTop_toBottomOf="@+id/space21" />
+
+            <CheckBox
+                android:id="@+id/click_product_SPORTS_AND_FITNESS"
+                android:text="SPORTS_AND_FITNESS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_category_heading"/>
+
+
+            <Space
+                android:id="@+id/space22"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_SPORTS_AND_FITNESS"/>
+
+            <CheckBox
+                android:id="@+id/click_product_ELECTRIC"
+                android:text="ELECTRIC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space22"/>
+
+
+            <Space
+                android:id="@+id/space23"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_ELECTRIC"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_DEVOTIONAL"
+                android:text="DEVOTIONAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space23"/>
+
+            <Space
+                android:id="@+id/space24"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_DEVOTIONAL"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_AGRICULTURAL"
+                android:text="AGRICULTURAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space24"/>
+
+            <Space
+                android:id="@+id/space25"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_AGRICULTURAL"/>
+
+            <CheckBox
+                android:id="@+id/click_product_WOMENS_CLOTHING"
+                android:text="WOMENS_CLOTHING"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space25"/>
+
+            <Space
+                android:id="@+id/space26"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_WOMENS_CLOTHING"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_WOMENS_ACCESSORIES"
+                android:text="WOMENS_ACCESSORIES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space26"/>
+
+            <Space
+                android:id="@+id/space27"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_WOMENS_ACCESSORIES"/>
+
+            <CheckBox
+                android:id="@+id/click_product_MENS_CLOTHING"
+                android:text="MENS_CLOTHING"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space27"/>
+
+            <Space
+                android:id="@+id/space28"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_MENS_CLOTHING"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_MENS_ACCESSORIES"
+                android:text="MENS_ACCESSORIES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space28"/>
+
+            <Space
+                android:id="@+id/space29"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_MENS_ACCESSORIES"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_HOME_GADGETS"
+                android:text="HOME_GADGETS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space29"/>
+
+            <Space
+                android:id="@+id/space30"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_HOME_GADGETS"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_TOYS"
+                android:text="TOYS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space30"/>
+
+            <Space
+                android:id="@+id/space31"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_TOYS"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_ELECTRONIC"
+                android:text="ELECTRONIC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space31"/>
+
+            <Space
+                android:id="@+id/space32"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_ELECTRONIC"/>
+
+
+
+            <CheckBox
+                android:id="@+id/click_product_DECORATION"
+                android:text="DECORATION"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space32"/>
+
+            <Space
+                android:id="@+id/space33"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_DECORATION"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_FOOD"
+                android:text="FOOD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space33"/>
+
+            <Space
+                android:id="@+id/space34"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_FOOD"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_STATIONERY"
+                android:text="STATIONERY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space34"/>
+
+            <Space
+                android:id="@+id/space35"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_STATIONERY"/>
+
+            <CheckBox
+                android:id="@+id/click_product_BAGS"
+                android:text="BAGS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space35"/>
+
+            <Space
+                android:id="@+id/space36"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_BAGS"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_HARDWARE"
+                android:text="HARDWARE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space36"/>
+
+            <Space
+                android:id="@+id/space37"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_HARDWARE"/>
+
+            <CheckBox
+                android:id="@+id/click_product_FURNITURE"
+                android:text="FURNITURE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space37"/>
+
+            <Space
+                android:id="@+id/space38"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_FURNITURE"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_PACKAGING_AND_PRINTING"
+                android:text="PACKAGING_AND_PRINTING"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space38"/>
+
+            <Space
+                android:id="@+id/space39"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_PACKAGING_AND_PRINTING"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_BEAUTY_AND_PERSONAL_CARE"
+                android:text="BEAUTY_AND_PERSONAL_CARE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space39"/>
+
+            <Space
+                android:id="@+id/space40"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_BEAUTY_AND_PERSONAL_CARE"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_CHEMICALS"
+                android:text="CHEMICALS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space40"/>
+
+            <Space
+                android:id="@+id/space41"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_CHEMICALS"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_GARDEN"
+                android:text="GARDEN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space41"/>
+
+            <Space
+                android:id="@+id/space42"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_GARDEN"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_KITCHEN"
+                android:text="KITCHEN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space42"/>
+
+            <Space
+                android:id="@+id/space43"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_KITCHEN"/>
+
+
+            <CheckBox
+                android:id="@+id/click_product_MACHINERY"
+                android:text="MACHINERY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space43"/>
+
+            <Space
+                android:id="@+id/space44"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_MACHINERY"/>
+
+
+
+            <Button
+                android:id="@+id/click_product"
+                android:layout_width="307dp"
+                android:layout_height="0dp"
+                android:background="?colorSecondary"
+                android:fontFamily="sans-serif-medium"
+                android:text="Update Product"
+                app:backgroundTint="?colorSecondary"
+                app:cornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space44"/>
+
+            <Space
+                android:id="@+id/space6"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/major_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_logo_text2"/>
+
+            <Space
+                android:id="@+id/space7"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/minor_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_name_input"/>
+
+            <Space
+                android:id="@+id/space9"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/minor_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_description_input"/>
+
+            <Space
+                android:id="@+id/space10"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/minor_component_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product_product_shipping_info_input"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="@dimen/end_component_gap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_product"
+                app:layout_constraintVertical_bias="0.0"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sign_up_fill_form"
+                app:layout_constraintEnd_toStartOf="@+id/sign_up_heading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space6"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    repeated Category Category = 42;-->

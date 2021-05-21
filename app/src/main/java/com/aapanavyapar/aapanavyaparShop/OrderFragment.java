@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyaparShop.services.GetOrdersRequest;
-import com.aapanavyapar.aapanavyaparShop.services.GetOrdersResponse;
-import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyapar.services.GetOrdersRequest;
+import com.aapanavyapar.aapanavyapar.services.GetOrdersResponse;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.adapter.OrderDataAdapter;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;

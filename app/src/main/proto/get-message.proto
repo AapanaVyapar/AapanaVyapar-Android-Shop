@@ -49,6 +49,7 @@ message GetProductsRequest {
 }
 
 message GetProductsResponse {
+  string productId = 80;
   string productName = 81;
   string Description = 82;
   string ShippingInfo = 83;

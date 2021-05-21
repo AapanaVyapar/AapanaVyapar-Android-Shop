@@ -17,13 +17,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyaparShop.services.Address;
-import com.aapanavyapar.aapanavyaparShop.services.Category;
-import com.aapanavyapar.aapanavyaparShop.services.CreateShopRequest;
-import com.aapanavyapar.aapanavyaparShop.services.CreateShopResponse;
-import com.aapanavyapar.aapanavyaparShop.services.Location;
-import com.aapanavyapar.aapanavyaparShop.services.OperationalHours;
-import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyapar.services.Address;
+import com.aapanavyapar.aapanavyapar.services.Category;
+import com.aapanavyapar.aapanavyapar.services.CreateShopRequest;
+import com.aapanavyapar.aapanavyapar.services.CreateShopResponse;
+import com.aapanavyapar.aapanavyapar.services.Location;
+import com.aapanavyapar.aapanavyapar.services.OperationalHours;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 

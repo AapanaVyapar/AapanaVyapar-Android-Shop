@@ -17,9 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyaparShop.services.GetProductsRequest;
-import com.aapanavyapar.aapanavyaparShop.services.GetProductsResponse;
-import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyapar.services.GetProductsRequest;
+import com.aapanavyapar.aapanavyapar.services.GetProductsResponse;
+import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.adapter.ProductDataAdapter;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;
@@ -95,6 +95,7 @@ public class ProductFragment extends Fragment {
                 GetProductsResponse product = responseProducts.next();
                 Log.d("PRODUCT_FRAGMENT", product.getProductName());
                 productData.add(new ProductData(
+                        product.getProductId(),
                         product.getProductName(),
                         product.getDescription(),
                         product.getShippingInfo(),
@@ -126,6 +127,7 @@ public class ProductFragment extends Fragment {
                         while (responseProducts.hasNext()) {
                             GetProductsResponse product = responseProducts.next();
                             productData.add(new ProductData(
+                                    product.getProductId(),
                                     product.getProductName(),
                                     product.getDescription(),
                                     product.getShippingInfo(),
