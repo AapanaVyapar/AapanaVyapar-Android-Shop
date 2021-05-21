@@ -1,6 +1,5 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -19,11 +18,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyapar.services.ContactConformationRequest;
-import com.aapanavyapar.aapanavyapar.services.ContactConformationResponse;
-import com.aapanavyapar.aapanavyapar.services.ResendOTPRequest;
-import com.aapanavyapar.aapanavyapar.services.ResendOTPResponse;
+import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.ContactConformationRequest;
+import com.aapanavyapar.aapanavyaparShop.services.ContactConformationResponse;
+import com.aapanavyapar.aapanavyaparShop.services.ResendOTPRequest;
+import com.aapanavyapar.aapanavyaparShop.services.ResendOTPResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;

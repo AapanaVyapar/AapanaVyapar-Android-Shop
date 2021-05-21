@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
 import android.os.Bundle;
 
@@ -16,9 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyapar.services.ForgetPasswordRequest;
-import com.aapanavyapar.aapanavyapar.services.ForgetPasswordResponse;
+import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.ForgetPasswordRequest;
+import com.aapanavyapar.aapanavyaparShop.services.ForgetPasswordResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.validators.validators;

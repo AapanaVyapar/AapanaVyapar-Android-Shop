@@ -10,11 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aapanavyapar.aapanavyapar.ProductOnCardClick;
-import com.aapanavyapar.aapanavyapar.R;
+import com.aapanavyapar.aapanavyaparShop.R;
 import com.aapanavyapar.viewData.ProductData;
 import com.bumptech.glide.Glide;
 

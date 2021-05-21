@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;

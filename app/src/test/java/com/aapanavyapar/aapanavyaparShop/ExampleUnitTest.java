@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
 import org.junit.Test;
 

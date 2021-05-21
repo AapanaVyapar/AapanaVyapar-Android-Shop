@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/WelcomeFragment"
-        android:name="com.aapanavyapar.aapanavyapar.WelcomeFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.WelcomeFragment"
         android:label="@string/welcome_fragment_label"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/SignupFragment"
-        android:name="com.aapanavyapar.aapanavyapar.SignupFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.SignupFragment"
         android:label="@string/singup_fragment_label"
         tools:layout="@layout/fragment_signup">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/SigninFragment"
-        android:name="com.aapanavyapar.aapanavyapar.SigninFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.SigninFragment"
         android:label="@string/singin_fragment_label"
         tools:layout="@layout/fragment_signin">
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/SignupConfirmOtpFragment"
-        android:name="com.aapanavyapar.aapanavyapar.SignupConfirmOtpFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.SignupConfirmOtpFragment"
         android:label="Confirm Your OTP For Signup"
         tools:layout="@layout/fragment_signup_confirm_otp">
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/CreateShopFragment"
-        android:name="com.aapanavyapar.aapanavyapar.CreateShop"
+        android:name="com.aapanavyapar.aapanavyaparShop.CreateShop"
         android:label="Create Your Shop"
         tools:layout="@layout/fragment_create_shop">
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/ForgotPasswordFragment"
-        android:name="com.aapanavyapar.aapanavyapar.ForgotPasswordFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.ForgotPasswordFragment"
         android:label="Forgot Password"
         tools:layout="@layout/fragment_forgot_password">
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/CreateNewPasswordFragment"
-        android:name="com.aapanavyapar.aapanavyapar.CreateNewPasswordFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.CreateNewPasswordFragment"
         android:label="Confirm Your New Password"
         tools:layout="@layout/fragment_create_new_password">
 
@@ -107,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/ForgotPasswordConfirmOtpFragment"
-        android:name="com.aapanavyapar.aapanavyapar.ForgotPasswordConfirmOtpFragment"
+        android:name="com.aapanavyapar.aapanavyaparShop.ForgotPasswordConfirmOtpFragment"
         android:label="Confirm Your OTP For New Password"
         tools:layout="@layout/fragment_forgot_password_confirm_otp">
         <action

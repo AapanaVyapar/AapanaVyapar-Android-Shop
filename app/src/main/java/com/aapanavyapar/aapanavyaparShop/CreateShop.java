@@ -1,6 +1,5 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,14 +17,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyapar.services.Address;
-import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyapar.services.Category;
-import com.aapanavyapar.aapanavyapar.services.CreateShopRequest;
-import com.aapanavyapar.aapanavyapar.services.CreateShopResponse;
-import com.aapanavyapar.aapanavyapar.services.Location;
-import com.aapanavyapar.aapanavyapar.services.OperationalHours;
-import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.Address;
+import com.aapanavyapar.aapanavyaparShop.services.Category;
+import com.aapanavyapar.aapanavyaparShop.services.CreateShopRequest;
+import com.aapanavyapar.aapanavyaparShop.services.CreateShopResponse;
+import com.aapanavyapar.aapanavyaparShop.services.Location;
+import com.aapanavyapar.aapanavyaparShop.services.OperationalHours;
+import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 
@@ -38,7 +36,6 @@ import java.util.concurrent.TimeUnit;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusException;
 import io.grpc.StatusRuntimeException;
 
 public class CreateShop extends Fragment {

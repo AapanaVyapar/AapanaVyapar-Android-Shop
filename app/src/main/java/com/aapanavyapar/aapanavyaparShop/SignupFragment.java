@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.aapanavyapar.aapanavyapar.services.AuthenticationGrpc;
-import com.aapanavyapar.aapanavyapar.services.SignUpRequest;
-import com.aapanavyapar.aapanavyapar.services.SignUpResponse;
+import com.aapanavyapar.aapanavyaparShop.services.AuthenticationGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.SignUpRequest;
+import com.aapanavyapar.aapanavyaparShop.services.SignUpResponse;
 import com.aapanavyapar.constants.constants;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.validators.validators;

@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
 import android.os.Bundle;
 
@@ -17,9 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyapar.services.GetProductsRequest;
-import com.aapanavyapar.aapanavyapar.services.GetProductsResponse;
-import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.GetProductsRequest;
+import com.aapanavyapar.aapanavyaparShop.services.GetProductsResponse;
+import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.adapter.ProductDataAdapter;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;

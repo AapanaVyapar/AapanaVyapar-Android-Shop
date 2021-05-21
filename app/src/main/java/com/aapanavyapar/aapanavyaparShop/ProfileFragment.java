@@ -1,4 +1,4 @@
-package com.aapanavyapar.aapanavyapar;
+package com.aapanavyapar.aapanavyaparShop;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.aapanavyapar.aapanavyapar.services.GetShopDetailsRequest;
-import com.aapanavyapar.aapanavyapar.services.GetShopDetailsResponse;
-import com.aapanavyapar.aapanavyapar.services.ViewProviderServiceGrpc;
+import com.aapanavyapar.aapanavyaparShop.services.GetShopDetailsRequest;
+import com.aapanavyapar.aapanavyaparShop.services.GetShopDetailsResponse;
+import com.aapanavyapar.aapanavyaparShop.services.ViewProviderServiceGrpc;
 import com.aapanavyapar.dataModel.DataModel;
 import com.aapanavyapar.serviceWrappers.UpdateToken;
 

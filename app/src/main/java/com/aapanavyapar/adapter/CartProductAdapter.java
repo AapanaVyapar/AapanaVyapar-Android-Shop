@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aapanavyapar.aapanavyapar.R;
+import com.aapanavyapar.aapanavyaparShop.R;
 import com.aapanavyapar.viewData.CartProductData;
 
 

@@ -1,6 +1,6 @@
 package com.aapanavyapar.viewData;
 
-import com.aapanavyapar.aapanavyapar.services.Address;
+import com.aapanavyapar.aapanavyaparShop.services.Address;
 
 public class OrderData {
     String orderId;
