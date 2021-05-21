@@ -131,7 +131,7 @@ public class CreateShop extends Fragment {
         view.findViewById(R.id.create_shop_MACHINERY).setOnClickListener(this::onCheckboxClicked);
 
 
-        createShop.setOnClickListener(new View.OnClickListener() {
+        createShop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 
