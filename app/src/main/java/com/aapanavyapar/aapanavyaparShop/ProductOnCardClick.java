@@ -1,23 +1,18 @@
 package com.aapanavyapar.aapanavyaparShop;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aapanavyapar.aapanavyapar.services.AddProductRequest;
-import com.aapanavyapar.aapanavyapar.services.AddProductResponse;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.aapanavyapar.aapanavyapar.services.Category;
 import com.aapanavyapar.aapanavyapar.services.UpdateProductDataRequest;
 import com.aapanavyapar.aapanavyapar.services.UpdateProductDataResponse;
@@ -28,7 +23,6 @@ import com.aapanavyapar.viewData.ProductData;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
