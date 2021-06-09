@@ -2,9 +2,9 @@
 <resources>
 
     <color name="primaryTextColor">#442C2E</color>
-    <color name="primary">#FEDBD0</color>
+    <color name="primary">#DCAFA0</color>
 
-    <color name="secondary">#FEEAE6</color>
+    <color name="secondary">#F1D3CD</color>
     <color name="secondaryTextColor">#442C2E</color>
 
     <color name="navigationBarColor">#FFFBFA</color>
@@ -31,4 +31,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
 
+    <color name="transparent">#00000000</color>
 </resources>
