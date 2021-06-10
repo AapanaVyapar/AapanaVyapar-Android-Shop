@@ -50,7 +50,7 @@ public class OrderDataAdapter extends RecyclerView.Adapter<OrderDataAdapter.View
         holder.orderStatus.setText("Order Status : " + orderData.getOrderStatus());
         holder.orderDeliveryTimeStamp.setText("Order Delivery Time : " + orderData.getOrderDeliveryTimeStamp());
         holder.orderOrderTimeStamp.setText("Order Ordered Time : " + orderData.getOrderOrderTimeStamp());
-        holder.orderProductPrice.setText("Order Price : " + String.valueOf(orderData.getOrderProductPrice()));
+        holder.orderProductPrice.setText("Order Price : " + String.valueOf(orderData.getOrderProductPrice() / 100));
         holder.orderProductQty.setText("Order Quantity : " + String.valueOf(orderData.getOrderProductQty()));
         holder.orderProductName.setText(orderData.getOrderProductName());
 
