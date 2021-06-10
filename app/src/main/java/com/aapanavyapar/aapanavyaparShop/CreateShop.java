@@ -172,7 +172,7 @@ public class CreateShop extends Fragment {
                                 .build())
                         .build();
                 try {
-                    CreateShopResponse shopResponse = blockingStub.withDeadlineAfter(1, TimeUnit.MINUTES).createShop(request);
+                    CreateShopResponse shopResponse = blockingStub.withDeadlineAfter(5, TimeUnit.MINUTES).createShop(request);
                     if(!shopResponse.getOk()){
                         Toast.makeText(getContext(), "Fail To Create Shop ..!!", Toast.LENGTH_LONG).show();
 

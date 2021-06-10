@@ -4,59 +4,59 @@ option go_package = ".;pb";
 option java_multiple_files = true;
 option java_package = "com.aapanavyapar.aapanavyapar.services";
 
-import "shop-view-common-message.proto";
+import "common-message.proto";
 
 message GetShopDetailsRequest {
-  string ApiKey = 61;
-  string Token = 62;
+  string ApiKey = 70;
+  string Token = 71;
 }
 
 message GetShopDetailsResponse {
-  string ShopName = 63;
-  string ShopKeeperName = 64;
-  repeated string Images = 65;
-  string PrimaryImage = 66;
-  Address Address = 67;
-  Location Location = 68;
-  repeated Category Category = 69;
-  string BusinessInformation = 70;
-  OperationalHours OperationalHours = 71;
-  repeated RatingOfShop ratings = 72;
-  string timestamp = 73;
+  string ShopName = 72;
+  string ShopKeeperName = 73;
+  repeated string Images = 74;
+  string PrimaryImage = 75;
+  Address Address = 76;
+  Location Location = 77;
+  repeated Category Category = 78;
+  string BusinessInformation = 79;
+  OperationalHours OperationalHours = 80;
+  repeated RatingOfShop ratings = 81;
+  string timestamp = 82;
 }
 
 message GetOrdersRequest {
-  string ApiKey = 49;
-  string Token = 50;
+  string ApiKey = 83;
+  string Token = 84;
 }
 
 message GetOrdersResponse {
-  string orderId = 51;
-  Status status = 52;
-  string productId = 53;
-  string deliveryTimeStamp = 54;
-  string orderTimeStamp = 55;
-  float price = 56;
-  uint32 quantity = 57;
-  string productName = 58;
-  string productImage = 59;
-  Address address = 60;
+  string orderId = 85;
+  Status status = 86;
+  string productId = 87;
+  string deliveryTimeStamp = 88;
+  string orderTimeStamp = 89;
+  float price = 90;
+  uint32 quantity = 91;
+  string productName = 92;
+  string productImage = 93;
+  Address address = 94;
 }
 
 message GetProductsRequest {
-  string ApiKey = 79;
-  string Token = 80;
+  string ApiKey = 95;
+  string Token = 96;
 }
 
 message GetProductsResponse {
-  string productId = 80;
-  string productName = 81;
-  string Description = 82;
-  string ShippingInfo = 83;
-  uint32 Stock = 84;
-  float Price = 85;
-  uint32 Offer = 86;
-  repeated string Images = 87;
-  repeated Category Category = 88;
+  string productId = 97;
+  string productName = 98;
+  string Description = 99;
+  string ShippingInfo = 100;
+  uint32 Stock = 101;
+  float Price = 102;
+  uint32 Offer = 103;
+  repeated string Images = 104;
+  repeated Category Category = 105;
 }
 

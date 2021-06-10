@@ -4,66 +4,66 @@ option go_package = ".;pb";
 option java_multiple_files = true;
 option java_package = "com.aapanavyapar.aapanavyapar.services";
 
-import "shop-view-common-message.proto";
+import "common-message.proto";
 
 message CreateShopRequest {
-  string ApiKey = 19;
-  string Token = 48;
-  string ShopName = 20;
-  repeated string Images = 22;
-  string PrimaryImage = 23;
-  Address Address = 24;
-  Location Location = 25;
-  repeated Category Category = 26;
-  string BusinessInformation = 27;
-  OperationalHours OperationalHours = 28;
+  string ApiKey = 41;
+  string Token = 42;
+  string ShopName = 43;
+  repeated string Images = 44;
+  string PrimaryImage = 45;
+  Address Address = 46;
+  Location Location = 47;
+  repeated Category Category = 48;
+  string BusinessInformation = 49;
+  OperationalHours OperationalHours = 50;
 
 }
 
 message CreateShopResponse {
-  bool Ok = 28;
+  bool Ok = 51;
 
 }
 
 message DeleteShopRequest {
-  string Token = 29;
-  string ApiKey = 30;       // Later Add OTP Conformation For Deletion Of Shop
+  string Token = 52;
+  string ApiKey = 53;       // Later Add OTP Conformation For Deletion Of Shop
                             // Here The Shop Id Is In Token ie.Audience
                             // Shop Name Is In Subject. ( Remember To Check )
 }
 
 message DeleteShopResponse {
-  bool Ok = 31;
+  bool Ok = 54;
 
 }
 
 message AddProductRequest {
-  string Token = 32;
-  string ApiKey = 33;
-  string Title = 34;
-  string Description = 36;
-  string ShippingInfo = 37;
-  uint32 Stock = 38;
-  float Price = 39;
-  uint32 Offer = 40;
-  repeated string Images = 41;
-  repeated Category Category = 42;
+  string Token = 55;
+  string ApiKey = 56;
+  string Title = 57;
+  string Description = 58;
+  string ShippingInfo = 59;
+  uint32 Stock = 60;
+  float Price = 61;
+  uint32 Offer = 62;
+  repeated string Images = 63;
+  repeated Category Category = 64;
 
 }
 
 message AddProductResponse {
-  bool ok = 43;
+  bool ok = 65;
 
 }
 
 message DelProductRequest {
-  string Token = 44;
-  string ApiKey = 45;
-  string ProductId = 46;
+  string Token = 66;
+  string ApiKey = 67;
+  string ProductId = 68;
 
 }
 
 message DelProductResponse {
-  bool ok = 47;
+  bool ok = 69;
 
 }

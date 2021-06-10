@@ -217,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/asap_medium"
-                android:text="Price In Pisa"
+                android:text="Price In Rupees"
                 android:textColor="?android:textColor"
                 android:textSize="15sp"
                 android:textStyle="bold"

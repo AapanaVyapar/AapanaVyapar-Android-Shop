@@ -196,7 +196,7 @@
                 android:backgroundTint="#D3CCCC"
                 android:ems="15"
                 android:fontFamily="@font/asap_medium"
-                android:hint="Enter Mobile Number"
+                android:hint="image urls"
                 android:inputType="textUri"
                 android:textColorHint="#BFBDBD"
                 app:layout_constraintEnd_toEndOf="parent"
