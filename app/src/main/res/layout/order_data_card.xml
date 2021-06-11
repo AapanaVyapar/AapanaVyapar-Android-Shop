@@ -7,10 +7,10 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="10dp"
-    app:strokeColor="@color/black"
     app:strokeWidth="1dp">
 
     <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -28,7 +28,7 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/black"/>
+            android:background="?android:textColor"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,6 +79,7 @@
                 <TextView
                     android:id="@+id/orderPrice"
                     android:text="1000 Paise"
+                    android:textColor="?android:textColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -93,6 +94,7 @@
         <TextView
             android:id="@+id/orderId"
             android:text="Order Id : "
+            android:textColor="?android:textColor"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -100,6 +102,7 @@
         <TextView
             android:id="@+id/orderStatus"
             android:text="Status : "
+            android:textColor="?android:textColor"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -108,6 +111,7 @@
             android:id="@+id/orderOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?android:textColor"
             android:text="Ordered On : "
             android:textAlignment="textStart"
             android:textStyle="bold" />
@@ -116,6 +120,7 @@
             android:id="@+id/orderDelivery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?android:textColor"
             android:text="Delivery On : "
             android:textAlignment="textStart"
             android:textStyle="bold" />
@@ -123,60 +128,79 @@
         <TextView
             android:text="Delivery Address"
             android:textStyle="bold"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressFullName"
             android:text="Full Name : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressHouseDetails"
             android:text="House Details : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressStreetDetails"
             android:text="Street Details : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressLandMark"
             android:text="Landmark : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressPinCode"
             android:text="PinCode : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressCity"
             android:text="City : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressState"
             android:text="State : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressCountry"
             android:text="Country : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/orderAddressPhoneNo"
             android:text="Phone No : "
+            android:layout_marginLeft="10dp"
+            android:textColor="?android:textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

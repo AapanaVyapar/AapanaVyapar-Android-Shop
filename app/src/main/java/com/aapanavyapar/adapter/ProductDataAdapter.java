@@ -54,7 +54,7 @@ public class ProductDataAdapter extends RecyclerView.Adapter<ProductDataAdapter.
         holder.description.setText(productCard.getDescription());
         holder.shippingInfo.setText(productCard.getShippingInfo());
         holder.stock.setText("Stock : " + String.valueOf(productCard.getStock()));
-        holder.price.setText("Price : " + String.valueOf(productCard.getPrice()) + " Paise");
+        holder.price.setText("Price : " + String.valueOf(productCard.getPrice()) + " Rupees");
         holder.offer.setText("Offer : " + String.valueOf(productCard.getOffer()) + "%");
         holder.category.setText("Category : " + productCard.getCategory());
 
